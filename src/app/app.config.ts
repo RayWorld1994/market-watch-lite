@@ -6,11 +6,11 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
 import { provideFormlyCore } from '@ngx-formly/core';
 import { withFormlyPrimeNG } from '@ngx-formly/primeng';
 
 import { routes } from './app.routes';
+import { abankPreset } from './abank-preset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +20,10 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura,
+        preset: abankPreset,
+        options: {
+          darkModeSelector: '.dark',
+        },
       },
     }),
     provideFormlyCore(withFormlyPrimeNG()),
