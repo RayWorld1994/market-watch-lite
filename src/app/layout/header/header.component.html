@@ -1,0 +1,36 @@
+<header
+  class="sticky top-0 z-50 w-full border-b backdrop-blur-sm"
+  style="
+    border-color: var(--color-surface-border);
+    background-color: color-mix(in srgb, var(--color-surface-base) 85%, transparent);
+  "
+>
+  <div class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+    <div class="flex items-center gap-2">
+      <span
+        class="text-lg font-bold tracking-tight"
+        style="color: var(--color-brand)"
+      >
+        MarketWatch
+      </span>
+      <span
+        class="rounded-full px-2 py-0.5 text-xs font-medium"
+        style="
+          background-color: var(--color-surface-strong);
+          color: var(--color-text-secondary);
+        "
+      >
+        Lite
+      </span>
+    </div>
+
+    <p-button
+      [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+      [rounded]="true"
+      [text]="true"
+      severity="secondary"
+      [ariaLabel]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+      (onClick)="toggleDarkMode()"
+    />
+  </div>
+</header>
