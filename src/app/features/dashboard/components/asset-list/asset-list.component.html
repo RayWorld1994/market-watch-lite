@@ -1,0 +1,26 @@
+@if (loading()) {
+  <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+    @for (_ of skeletonSlots; track $index) {
+      <app-skeleton-card />
+    }
+  </div>
+} @else if (coins().length === 0) {
+  <div
+    class="flex flex-col items-center justify-center rounded-xl px-6 py-16 text-center"
+    style="background-color: var(--color-surface-raised); border: 1px solid var(--color-surface-border)"
+  >
+    <span class="pi pi-inbox mb-3 text-4xl" style="color: var(--color-text-secondary)"></span>
+    <p class="text-base font-medium" style="color: var(--color-text-primary)">
+      No assets found
+    </p>
+    <p class="mt-1 text-sm" style="color: var(--color-text-secondary)">
+      There are no cryptocurrency assets to display right now.
+    </p>
+  </div>
+} @else {
+  <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+    @for (coin of coins(); track coin.id) {
+      <app-asset-card [coin]="coin" (selected)="assetSelected.emit($event)" />
+    }
+  </div>
+}
