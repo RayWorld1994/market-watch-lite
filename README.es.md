@@ -2,6 +2,8 @@
 
 Un panel de criptomonedas responsivo y mobile-first construido con Angular 21. Consume la API pública de [CoinGecko](https://www.coingecko.com/) para mostrar datos de mercado en tiempo real, buscar/filtrar activos e inspeccionar información detallada de cada moneda en un modal — todo con estados de carga skeleton y soporte para modo oscuro.
 
+**Live Demo:** [https://market-watch-lite-one.vercel.app/dashboard](https://market-watch-lite-one.vercel.app/dashboard)
+
 ## Requisitos Previos
 
 | Herramienta | Versión |
