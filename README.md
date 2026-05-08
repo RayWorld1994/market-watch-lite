@@ -2,6 +2,8 @@
 
 A responsive, mobile-first cryptocurrency dashboard built with Angular 21. It consumes the [CoinGecko](https://www.coingecko.com/) public API to display live market data, search/filter assets, and inspect detailed coin information in a modal — all with skeleton loading states and dark mode support.
 
+**Live Demo:** [https://market-watch-lite-one.vercel.app/dashboard](https://market-watch-lite-one.vercel.app/dashboard)
+
 ## Prerequisites
 
 | Tool | Version |
@@ -13,7 +15,7 @@ A responsive, mobile-first cryptocurrency dashboard built with Angular 21. It co
 
 ```bash
 # 1. Clone the repository
-git clone <repository-url>
+git clone https://github.com/RayWorld1994/market-watch-lite
 cd market-watch-lite
 
 # 2. Install dependencies
