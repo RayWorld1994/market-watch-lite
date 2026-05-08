@@ -7,7 +7,8 @@
   "dashboard": {
     "title": "Resumen del mercado",
     "subtitle": "Principales criptomonedas por capitalización de mercado",
-    "searchPlaceholder": "Buscar por nombre o símbolo…"
+    "searchPlaceholder": "Buscar por nombre o símbolo…",
+    "clearSearch": "Limpiar búsqueda"
   },
   "assetList": {
     "emptyTitle": "No se encontraron activos",

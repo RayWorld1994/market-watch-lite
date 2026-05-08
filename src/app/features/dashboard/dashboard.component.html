@@ -9,15 +9,27 @@
       </p>
     </div>
 
-    <p-iconfield iconPosition="left" class="w-full md:w-72">
+    <p-iconfield iconPosition="left" class="relative w-full md:w-72">
       <p-inputicon styleClass="pi pi-search" />
       <input
         type="text"
         pInputText
         [placeholder]="'dashboard.searchPlaceholder' | transloco"
-        class="w-full"
+        [value]="searchValue()"
+        class="w-full pr-10"
         (input)="onSearchInput($any($event.target).value)"
       />
+      @if (searchValue()) {
+        <button
+          type="button"
+          class="absolute right-2 top-1/2 flex h-7 w-7 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+          style="color: var(--color-text-secondary)"
+          [attr.aria-label]="'dashboard.clearSearch' | transloco"
+          (click)="clearSearch()"
+        >
+          <span class="pi pi-times text-xs"></span>
+        </button>
+      }
     </p-iconfield>
   </div>
 
