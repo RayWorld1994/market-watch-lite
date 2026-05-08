@@ -32,7 +32,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
         detail,
         life: 5000,
       });
-
+      console.log(error, 'Error here')
       return throwError(() => error);
     }),
   );

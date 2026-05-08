@@ -12,9 +12,9 @@ export const loadCoins$ = createEffect(
       exhaustMap(() =>
         coingeckoService.getMarkets().pipe(
           map((coins) => DashboardActions.loadCoinsSuccess({ coins })),
-          catchError((error) =>
-            of(DashboardActions.loadCoinsFailure({ error: error.message ?? 'Failed to load coins' })),
-          ),
+          catchError((error) => {
+            return of(DashboardActions.loadCoinsFailure({ error: error.error.message ?? 'Failed to load coins' }))
+          }),
         ),
       ),
     ),
