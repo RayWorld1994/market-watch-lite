@@ -8,11 +8,23 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { providePrimeNG } from 'primeng/config';
 import { provideFormlyCore } from '@ngx-formly/core';
 import { withFormlyPrimeNG } from '@ngx-formly/primeng';
+import { provideTransloco } from '@jsverse/transloco';
 import { MessageService } from 'primeng/api';
 
 import { routes } from './app.routes';
 import { abankPreset } from './abank-preset';
 import { httpErrorInterceptor } from './core/interceptors/http-error.interceptor';
+import { TranslocoHttpLoader } from './core/transloco-loader';
+
+const AVAILABLE_LANGS = ['en', 'es'] as const;
+
+function detectLang(): string {
+  const stored = localStorage.getItem('lang');
+  if (stored && (AVAILABLE_LANGS as readonly string[]).includes(stored)) return stored;
+  const browserLang = navigator.language?.split('-')[0];
+  if (browserLang && (AVAILABLE_LANGS as readonly string[]).includes(browserLang)) return browserLang;
+  return 'en';
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,6 +39,15 @@ export const appConfig: ApplicationConfig = {
           darkModeSelector: '.dark',
         },
       },
+    }),
+    provideTransloco({
+      config: {
+        availableLangs: [...AVAILABLE_LANGS],
+        defaultLang: detectLang(),
+        reRenderOnLangChange: true,
+        prodMode: !isDevMode(),
+      },
+      loader: TranslocoHttpLoader,
     }),
     provideFormlyCore(withFormlyPrimeNG()),
     provideStore(),

@@ -24,13 +24,26 @@
       </span>
     </div>
 
-    <p-button
-      [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
-      [rounded]="true"
-      [text]="true"
-      severity="secondary"
-      [ariaLabel]="isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
-      (onClick)="toggleDarkMode()"
-    />
+    <div class="flex items-center gap-1">
+      <p-button
+        [label]="currentLang() === 'es' ? 'EN' : 'ES'"
+        [rounded]="true"
+        [text]="true"
+        severity="secondary"
+        size="small"
+        styleClass="!text-xs !font-bold !min-w-0 !px-2"
+        (onClick)="switchLocale()"
+        [ariaLabel]="'header.switchLocale' | transloco"
+      />
+
+      <p-button
+        [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        [rounded]="true"
+        [text]="true"
+        severity="secondary"
+        [ariaLabel]="(isDark() ? 'header.switchToLight' : 'header.switchToDark') | transloco"
+        (onClick)="toggleDarkMode()"
+      />
+    </div>
   </div>
 </header>

@@ -1,11 +1,12 @@
 import { Component, input, output } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { CoinMarket } from '../../../../data/model/dashboard/coin-market.interface';
 import { AssetCardComponent } from '../asset-card/asset-card.component';
 import { SkeletonCardComponent } from '../../../../shared/components/skeleton-card/skeleton-card.component';
 
 @Component({
   selector: 'app-asset-list',
-  imports: [AssetCardComponent, SkeletonCardComponent],
+  imports: [AssetCardComponent, SkeletonCardComponent, TranslocoPipe],
   templateUrl: './asset-list.component.html',
 })
 export class AssetListComponent {

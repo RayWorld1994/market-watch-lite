@@ -1,0 +1,39 @@
+{
+  "header": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "switchLocale": "Switch language"
+  },
+  "dashboard": {
+    "title": "Market Overview",
+    "subtitle": "Top cryptocurrencies by market capitalization",
+    "searchPlaceholder": "Search by name or symbol…"
+  },
+  "assetList": {
+    "emptyTitle": "No assets found",
+    "emptyMessage": "There are no cryptocurrency assets to display right now."
+  },
+  "detail": {
+    "close": "Close",
+    "rank": "Rank",
+    "marketCap": "Market Cap",
+    "volume24h": "Volume 24h",
+    "high24h": "24h High",
+    "low24h": "24h Low",
+    "about": "About {{name}}",
+    "readMore": "Read more",
+    "showLess": "Show less"
+  },
+  "error": {
+    "requestFailed": "Request Failed",
+    "unexpected": "An unexpected error occurred. Please try again.",
+    "networkError": "Network Error",
+    "networkDetail": "Unable to reach the server. Check your connection.",
+    "rateLimited": "Rate Limited",
+    "rateLimitedDetail": "Too many requests. Please wait a moment and try again.",
+    "clientError": "Client Error ({{status}})",
+    "clientErrorDetail": "The request could not be processed.",
+    "serverError": "Server Error ({{status}})",
+    "serverErrorDetail": "The server encountered an error. Please try again later."
+  }
+}

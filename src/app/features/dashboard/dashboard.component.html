@@ -2,10 +2,10 @@
   <div class="mb-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
     <div>
       <h1 class="text-2xl font-bold" style="color: var(--color-text-primary)">
-        Market Overview
+        {{ 'dashboard.title' | transloco }}
       </h1>
       <p class="mt-1 text-sm" style="color: var(--color-text-secondary)">
-        Top cryptocurrencies by market capitalization
+        {{ 'dashboard.subtitle' | transloco }}
       </p>
     </div>
 
@@ -14,7 +14,7 @@
       <input
         type="text"
         pInputText
-        placeholder="Search by name or symbol…"
+        [placeholder]="'dashboard.searchPlaceholder' | transloco"
         class="w-full"
         (input)="onSearchInput($any($event.target).value)"
       />

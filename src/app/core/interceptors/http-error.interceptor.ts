@@ -1,29 +1,31 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 import { MessageService } from 'primeng/api';
 import { catchError, throwError } from 'rxjs';
 
 export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
   const messageService = inject(MessageService);
+  const transloco = inject(TranslocoService);
 
   return next(req).pipe(
     catchError((error) => {
       const status = error.status ?? 0;
-      let summary = 'Request Failed';
-      let detail = 'An unexpected error occurred. Please try again.';
+      let summary = transloco.translate('error.requestFailed');
+      let detail = transloco.translate('error.unexpected');
 
       if (status === 0) {
-        summary = 'Network Error';
-        detail = 'Unable to reach the server. Check your connection.';
+        summary = transloco.translate('error.networkError');
+        detail = transloco.translate('error.networkDetail');
       } else if (status === 429) {
-        summary = 'Rate Limited';
-        detail = 'Too many requests. Please wait a moment and try again.';
+        summary = transloco.translate('error.rateLimited');
+        detail = transloco.translate('error.rateLimitedDetail');
       } else if (status >= 400 && status < 500) {
-        summary = `Client Error (${status})`;
-        detail = error.error?.message ?? 'The request could not be processed.';
+        summary = transloco.translate('error.clientError', { status });
+        detail = error.error?.message ?? transloco.translate('error.clientErrorDetail');
       } else if (status >= 500) {
-        summary = `Server Error (${status})`;
-        detail = 'The server encountered an error. Please try again later.';
+        summary = transloco.translate('error.serverError', { status });
+        detail = transloco.translate('error.serverErrorDetail');
       }
 
       messageService.add({
@@ -32,7 +34,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
         detail,
         life: 5000,
       });
-      console.log(error, 'Error here')
+
       return throwError(() => error);
     }),
   );

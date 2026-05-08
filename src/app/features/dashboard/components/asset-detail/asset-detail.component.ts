@@ -13,6 +13,7 @@ import {
   selectSparkline,
 } from '../../../../store/dashboard/dashboard.selectors';
 import { CoinDetail } from '../../../../data/model/dashboard/coin-detail.interface';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { SparklineChartComponent } from '../../../../shared/components/sparkline-chart/sparkline-chart.component';
 
 function pickLocalizedDescription(desc: Record<string, string> | undefined): string {
@@ -32,7 +33,7 @@ function formatCompact(value: number): string {
 
 @Component({
   selector: 'app-asset-detail',
-  imports: [DialogModule, Skeleton, CurrencyPipe, DecimalPipe, NgClass, SparklineChartComponent],
+  imports: [DialogModule, Skeleton, CurrencyPipe, DecimalPipe, NgClass, SparklineChartComponent, TranslocoPipe],
   templateUrl: './asset-detail.component.html',
 })
 export class AssetDetailComponent {

@@ -1,0 +1,39 @@
+{
+  "header": {
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro",
+    "switchLocale": "Cambiar idioma"
+  },
+  "dashboard": {
+    "title": "Resumen del mercado",
+    "subtitle": "Principales criptomonedas por capitalización de mercado",
+    "searchPlaceholder": "Buscar por nombre o símbolo…"
+  },
+  "assetList": {
+    "emptyTitle": "No se encontraron activos",
+    "emptyMessage": "No hay activos de criptomonedas para mostrar en este momento."
+  },
+  "detail": {
+    "close": "Cerrar",
+    "rank": "Posición",
+    "marketCap": "Cap. de mercado",
+    "volume24h": "Volumen 24h",
+    "high24h": "Máximo 24h",
+    "low24h": "Mínimo 24h",
+    "about": "Acerca de {{name}}",
+    "readMore": "Leer más",
+    "showLess": "Ver menos"
+  },
+  "error": {
+    "requestFailed": "Solicitud fallida",
+    "unexpected": "Ocurrió un error inesperado. Inténtalo de nuevo.",
+    "networkError": "Error de red",
+    "networkDetail": "No se pudo conectar al servidor. Verifica tu conexión.",
+    "rateLimited": "Límite de solicitudes",
+    "rateLimitedDetail": "Demasiadas solicitudes. Espera un momento e inténtalo de nuevo.",
+    "clientError": "Error del cliente ({{status}})",
+    "clientErrorDetail": "No se pudo procesar la solicitud.",
+    "serverError": "Error del servidor ({{status}})",
+    "serverErrorDetail": "El servidor encontró un error. Inténtalo más tarde."
+  }
+}

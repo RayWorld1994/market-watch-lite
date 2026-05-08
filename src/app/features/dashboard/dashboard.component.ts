@@ -5,6 +5,7 @@ import { Subject, debounceTime, distinctUntilChanged } from 'rxjs';
 import { InputTextModule } from 'primeng/inputtext';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { DashboardActions } from '../../store/dashboard/dashboard.actions';
 import { selectCoins, selectLoading, selectError } from '../../store/dashboard/dashboard.selectors';
 import { AssetListComponent } from './components/asset-list/asset-list.component';
@@ -13,7 +14,7 @@ import { CoinMarket } from '../../data/model/dashboard/coin-market.interface';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AssetListComponent, AssetDetailComponent, InputTextModule, IconFieldModule, InputIconModule],
+  imports: [AssetListComponent, AssetDetailComponent, InputTextModule, IconFieldModule, InputIconModule, TranslocoPipe],
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
