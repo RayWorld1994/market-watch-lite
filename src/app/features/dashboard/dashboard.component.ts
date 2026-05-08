@@ -8,11 +8,12 @@ import { InputIconModule } from 'primeng/inputicon';
 import { DashboardActions } from '../../store/dashboard/dashboard.actions';
 import { selectCoins, selectLoading, selectError } from '../../store/dashboard/dashboard.selectors';
 import { AssetListComponent } from './components/asset-list/asset-list.component';
+import { AssetDetailComponent } from './components/asset-detail/asset-detail.component';
 import { CoinMarket } from '../../data/model/dashboard/coin-market.interface';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [AssetListComponent, InputTextModule, IconFieldModule, InputIconModule],
+  imports: [AssetListComponent, AssetDetailComponent, InputTextModule, IconFieldModule, InputIconModule],
   templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
@@ -48,7 +49,8 @@ export class DashboardComponent implements OnInit {
   }
 
   onAssetSelected(coinId: string): void {
-    // Will be handled by Feature 4 (Asset Detail Modal)
-    console.log('Asset selected:', coinId);
+    const coin = this.allCoins().find((c) => c.id === coinId);
+    const sparkline = coin?.sparkline_in_7d?.price;
+    this.store.dispatch(DashboardActions.openCoinDetail({ coinId, sparkline }));
   }
 }

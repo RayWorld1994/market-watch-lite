@@ -2,6 +2,7 @@ export interface CoinDetail {
   id: string;
   symbol: string;
   name: string;
+  market_cap_rank: number | null;
   description: Record<string, string>;
   image: {
     thumb: string;

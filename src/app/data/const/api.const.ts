@@ -11,6 +11,6 @@ export const DEFAULT_MARKET_PARAMS = {
   vs_currency: 'usd',
   per_page: '50',
   page: '1',
-  sparkline: 'false',
+  sparkline: 'true',
   price_change_percentage: '24h',
 } as const;
