@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
   protected readonly loading = this.store.selectSignal(selectLoading);
   protected readonly error = this.store.selectSignal(selectError);
 
+  protected readonly searchValue = signal('');
   protected readonly searchTerm = signal('');
   private readonly searchInput$ = new Subject<string>();
 
@@ -46,7 +47,14 @@ export class DashboardComponent implements OnInit {
   }
 
   onSearchInput(value: string): void {
+    this.searchValue.set(value);
     this.searchInput$.next(value);
+  }
+
+  protected clearSearch(): void {
+    this.searchValue.set('');
+    this.searchTerm.set('');
+    this.searchInput$.next('');
   }
 
   onAssetSelected(coinId: string): void {

@@ -109,6 +109,19 @@ describe('DashboardComponent', () => {
       component.onSearchInput('btc');
       expect(nextSpy).toHaveBeenCalledWith('btc');
     });
+
+    it('should clear search value and term', () => {
+      fixture.detectChanges();
+      const nextSpy = vi.spyOn(component['searchInput$'], 'next');
+      component.onSearchInput('btc');
+      component['searchTerm'].set('btc');
+
+      component['clearSearch']();
+
+      expect(component['searchValue']()).toBe('');
+      expect(component['searchTerm']()).toBe('');
+      expect(nextSpy).toHaveBeenLastCalledWith('');
+    });
   });
 
   describe('onAssetSelected', () => {
