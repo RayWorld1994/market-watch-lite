@@ -1,0 +1,49 @@
+<header
+  class="sticky top-0 z-50 w-full border-b backdrop-blur-sm"
+  style="
+    border-color: var(--color-surface-border);
+    background-color: color-mix(in srgb, var(--color-surface-base) 85%, transparent);
+  "
+>
+  <div class="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+    <div class="flex items-center gap-2">
+      <span
+        class="text-lg font-bold tracking-tight"
+        style="color: var(--color-brand)"
+      >
+        MarketWatch
+      </span>
+      <span
+        class="rounded-full px-2 py-0.5 text-xs font-medium"
+        style="
+          background-color: var(--color-surface-strong);
+          color: var(--color-text-secondary);
+        "
+      >
+        Lite
+      </span>
+    </div>
+
+    <div class="flex items-center gap-1">
+      <p-button
+        [label]="currentLang() === 'es' ? 'EN' : 'ES'"
+        [rounded]="true"
+        [text]="true"
+        severity="secondary"
+        size="small"
+        styleClass="!text-xs !font-bold !min-w-0 !px-2"
+        (onClick)="switchLocale()"
+        [ariaLabel]="'header.switchLocale' | transloco"
+      />
+
+      <p-button
+        [icon]="isDark() ? 'pi pi-sun' : 'pi pi-moon'"
+        [rounded]="true"
+        [text]="true"
+        severity="secondary"
+        [ariaLabel]="(isDark() ? 'header.switchToLight' : 'header.switchToDark') | transloco"
+        (onClick)="toggleDarkMode()"
+      />
+    </div>
+  </div>
+</header>

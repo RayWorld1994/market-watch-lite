@@ -1,0 +1,41 @@
+<div class="py-4">
+  <div class="mb-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <h1 class="text-2xl font-bold" style="color: var(--color-text-primary)">
+        {{ 'dashboard.title' | transloco }}
+      </h1>
+      <p class="mt-1 text-sm" style="color: var(--color-text-secondary)">
+        {{ 'dashboard.subtitle' | transloco }}
+      </p>
+    </div>
+
+    <p-iconfield iconPosition="left" class="w-full md:w-72">
+      <p-inputicon styleClass="pi pi-search" />
+      <input
+        type="text"
+        pInputText
+        [placeholder]="'dashboard.searchPlaceholder' | transloco"
+        class="w-full"
+        (input)="onSearchInput($any($event.target).value)"
+      />
+    </p-iconfield>
+  </div>
+
+  @if (error(); as err) {
+    <div
+      class="mb-4 flex items-center gap-2 rounded-lg px-4 py-3 text-sm"
+      style="background-color: color-mix(in srgb, var(--color-brand) 10%, transparent); color: var(--color-brand)"
+    >
+      <span class="pi pi-exclamation-triangle"></span>
+      <span>{{ err }}</span>
+    </div>
+  }
+
+  <app-asset-list
+    [coins]="filteredCoins()"
+    [loading]="loading()"
+    (assetSelected)="onAssetSelected($event)"
+  />
+
+  <app-asset-detail />
+</div>
